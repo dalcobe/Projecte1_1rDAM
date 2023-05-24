@@ -55,7 +55,7 @@ INSERT INTO `actuen` (`id_actor`, `id_produccio`, `protagonista?`) VALUES
 	(34, 3, 0);
 
 -- Volcando datos para la tabla cands.clients: ~21 rows (aproximadamente)
-INSERT INTO `client` (`id_client`, `nom`, `dni`, `edat_data_naixement`, `domicili`, `nacionalitat`, `email`, `telefon`, `num_tarjeta`, `num_compte_banc`) VALUES
+INSERT INTO `client` (`id_client`, `nom`, `dni`, `edat_data_naixement`, `adreça`, `nacionalitat`, `email`, `telefon`, `num_tarjeta`, `num_compte_banc`) VALUES
 	(1, 'María Rodríguez', '23456789L', '2003-02-18', 'Calle Principal 789', 'España', 'mariarodriguez@gmail.com', 987654321, 1234567812345678, 'ES0123456789012345678901'),
 	(2, 'José García', '34567890M', '1988-07-26', 'Avenida Central 321', 'España', 'josegarcia@gmail.com', 123456789, 9876543210987654, 'ES0987654321098765432109'),
 	(3, 'Laura Martínez', '45678901N', '1995-04-09', 'Calle Secundaria 654', 'España', 'lauramartinez@hotmail.com', 456789012, 4567890123456789, 'ES3456789012345678901234'),
