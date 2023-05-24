@@ -54,20 +54,20 @@ public class ComptesTarifaVista {
         colIdCompte.setCellValueFactory(new PropertyValueFactory<>("idCompte"));
         
         TableColumn<Compte, Integer> colIdCli = new TableColumn<>("Id Client");
-        colIdCli.setCellValueFactory(new PropertyValueFactory<>("id Client"));
+        colIdCli.setCellValueFactory(new PropertyValueFactory<>("idClient"));
         
-        TableColumn<Compte, Integer> colCliDNI = new TableColumn<>("DNI");
+        TableColumn<Compte, String> colCliDNI = new TableColumn<>("DNI");
         colCliDNI.setMinWidth(100);
-        colCliDNI.setCellValueFactory(new PropertyValueFactory<>("dniCli"));
+        colCliDNI.setCellValueFactory(new PropertyValueFactory<>("DNI"));
         
-        TableColumn<Compte, Integer> colCliNom = new TableColumn<>("Nom");
+        TableColumn<Compte, String> colCliNom = new TableColumn<>("Nom");
         colCliNom.setMinWidth(100);
         colCliNom.setCellValueFactory(new PropertyValueFactory<>("nomCli"));
         
-        TableColumn<Compte, Integer> colDataAlta = new TableColumn<>("D.alta");
+        TableColumn<Compte, String> colDataAlta = new TableColumn<>("D.alta");
         colDataAlta.setCellValueFactory(new PropertyValueFactory<>("dataAlta"));
         
-        TableColumn<Compte, Integer> colModalitat = new TableColumn<>("Modalitat");
+        TableColumn<Compte, String> colModalitat = new TableColumn<>("Modalitat");
         colModalitat.setCellValueFactory(new PropertyValueFactory<>("idModalitat"));
         
         tblContractes.getColumns().addAll(colIdCompte,colIdCli,colCliDNI, colCliNom, colDataAlta, colModalitat);

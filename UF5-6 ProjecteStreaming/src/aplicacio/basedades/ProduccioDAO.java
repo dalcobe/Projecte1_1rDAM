@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
 
 public class ProduccioDAO {
     public Produccions consultaProduccioBD(int id){
@@ -48,13 +47,13 @@ public class ProduccioDAO {
         return p;
     }
     
-    private void dadesProduccioBD(PreparedStatement ps, Produccions p) throws SQLException{
+    /*private void dadesProduccioBD(PreparedStatement ps, Produccions p) throws SQLException{
         ps.setInt(1, p.getId());
         ps.setString(2, p.getNom());
         ps.setString(3, p.getNacionalitat());
         ps.setInt(4, p.getAny());
         ps.setInt(5, p.getFavorit());
-    }
+    }*/
     
     
 }

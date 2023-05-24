@@ -11,7 +11,7 @@ public class PeliculaDAO {
         Connection conn = Connexio.getConnection();
         Pelicula p = null;
         
-        String sentenciaSql = "SELECT durada FROM pel·licules WHERE id_produccio=?";
+        String sentenciaSql = "SELECT durada FROM pelicules WHERE id_produccio=?";
         
         try(PreparedStatement ps = conn.prepareStatement(sentenciaSql)){
             ps.setInt(1, id);
@@ -43,14 +43,13 @@ public class PeliculaDAO {
         
         String director = " ";
         
-        String sentenciaSql = "SELECT d.nomdirector FROM director d, dirigeix_pelicula dp "
-                            + "WHERE d.id_director = ? and dp.id_director = d.id_director";
+        String sentenciaSql = "SELECT d.nomdirector FROM director d, dirigeix_pelicula dp WHERE d.id_director = ? and dp.id_director = d.id_director";
         
         try(PreparedStatement ps = conn.prepareStatement(sentenciaSql)){
             ps.setInt(1, idProduccio);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return rs.getString("nom_director");
+                return rs.getString("nomdirector");
             }
         }catch(SQLException sqle){
             sqle.printStackTrace();
@@ -63,14 +62,13 @@ public class PeliculaDAO {
         
         String categoria = " ";
         
-        String sentenciaSql = "SELECT gen.nom FROM pertany pert, genere gen"
-                            + "WHERE pert.id_produccio = ? AND pert.id_categoria = gen.id_categoria";
+        String sentenciaSql = "SELECT gen.nom FROM pertany pert, genere gen WHERE pert.id_produccio = ? AND pert.id_categoria = gen.id_categoria";
         
         try(PreparedStatement ps = conn.prepareStatement(sentenciaSql)){
             ps.setInt(1, idProduccio);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return rs.getString("nom_categoria");
+                return rs.getString("nom");
             }
         }catch(SQLException sqle){
             sqle.printStackTrace();
@@ -83,14 +81,13 @@ public class PeliculaDAO {
         
         String actor = " ";
         
-        String sentenciaSql = "SELECT nomactor FROM actuen actu, actor acto"
-                            + "WHERE actu.id_actor = ? AND actu.id_produccio = acto.id_produccio";
+        String sentenciaSql = "SELECT nomactor FROM actuen actu, actors acto WHERE actu.id_produccio = ? AND actu.id_actor = acto.id_actor";
         
         try(PreparedStatement ps = conn.prepareStatement(sentenciaSql)){
             ps.setInt(1, idProduccio);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return rs.getString("nom_actor");
+                return rs.getString("nomactor");
             }
         }catch(SQLException sqle){
             sqle.printStackTrace();

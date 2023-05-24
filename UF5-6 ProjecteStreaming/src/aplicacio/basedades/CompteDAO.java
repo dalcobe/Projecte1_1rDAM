@@ -17,11 +17,9 @@ public class CompteDAO {
         String sentenciaSql = null;
         
         if (id_modalitat==0) {
-            sentenciaSql= "SELECT co.id_compte, cl.id_client, cl.nom, cl.DNI, co.data_alta, co.id_modalitat "
-                            + "FROM compte co, client cl where co.id_client = cl.id_client";
+            sentenciaSql= "SELECT co.id_compte, cl.id_client, cl.nom, cl.DNI, co.id_modalitat FROM compte co, client cl where co.id_client = cl.id_client";
         }else{
-            sentenciaSql = "SELECT co.id_compte, cl.id_client, cl.nom, cl.DNI, co.data_alta, co.id_modalitat "
-                            + "FROM compte co, client cl where co.id_modalitat = ? and co.id_client = cl.id_client";  
+            sentenciaSql = "SELECT co.id_compte, cl.id_client, cl.nom, cl.DNI, co.id_modalitat FROM compte co, client cl where co.id_modalitat = ? and co.id_client = cl.id_client";  
             }
         
         try (PreparedStatement ps = conn.prepareStatement(sentenciaSql)){
@@ -33,7 +31,7 @@ public class CompteDAO {
                 c.setIdCompte(rs.getInt("co.id_compte"));
                 c.setIdClient(rs.getInt("cl.id_client"));
                 c.setDNI(rs.getString("cl.DNI"));
-                c.setDataAlta(rs.getDate("co.data_alta").toLocalDate());
+                //c.setDataAlta(rs.getDate("co.data_alta").toLocalDate());
                 c.setNomCli(rs.getString("cl.nom"));
                 c.setIdModalitat(rs.getInt("co.id_modalitat"));
                 comptes.add(c);

@@ -60,7 +60,7 @@ public class Produccions {
     public void setFavorit(int favorit) {
         this.favorit = favorit;
     }
-    
+
      
     
 }

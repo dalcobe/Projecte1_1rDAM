@@ -13,8 +13,7 @@ public class SerieDAO {
         
         Series s = null;
         
-        String sentenciaSql = "SELECT COUNT(e.id_produccio) numcapitols, SUM(e.durada) as duradatotal FROM series s, episodi e"
-                            + "WHERE s.id_produccio = ? AND s.id_produccio = e.id_produccio";
+        String sentenciaSql = "SELECT COUNT(e.id_produccio), SUM(e.durada) as duradatotal FROM series s, episodi e WHERE s.id_produccio = ? AND s.id_produccio = e.id_produccio";
         
         try (PreparedStatement ps = conn.prepareStatement(sentenciaSql)){
             ps.setInt(1, id);
@@ -34,7 +33,7 @@ public class SerieDAO {
         Series s = new Series();
         s.setId(id);
         s.setDuradaTotal(rs.getDouble("durada"));
-        s.setNumCapitols(rs.getInt("num"));
+        //s.setNumCapitols(rs.getInt("num"));
         
         s.afegirActor(obtenirActor(id));
         s.afegirCategoria(obtenirCategoria(id));
@@ -48,8 +47,7 @@ public class SerieDAO {
         
         String director = " ";
         
-        String sentenciaSql = "SELECT d.nomdirector FROM director d, dirigeix_episodi de "
-                            + "WHERE d.id_director = ? and de.id_director = d.id_director";
+        String sentenciaSql = "SELECT d.nomdirector FROM director d, dirigeix_episodi de WHERE d.id_director = ? and de.id_director = d.id_director";
         
         try(PreparedStatement ps = conn.prepareStatement(sentenciaSql)){
             ps.setInt(1, idProduccio);
@@ -68,8 +66,7 @@ public class SerieDAO {
         
         String categoria = " ";
         
-        String sentenciaSql = "SELECT nom FROM pertany pert, genere gen"
-                            + "WHERE pert.id_produccio = ? AND pert.id_categoria = gen.id_categoria";
+        String sentenciaSql = "SELECT nom FROM pertany pert, genere gen WHERE pert.id_produccio = ? AND pert.id_categoria = gen.id_categoria";
         
         try(PreparedStatement ps = conn.prepareStatement(sentenciaSql)){
             ps.setInt(1, idProduccio);
@@ -88,8 +85,7 @@ public class SerieDAO {
         
         String actor = " ";
         
-        String sentenciaSql = "SELECT nomactor FROM actuen actu, actor acto"
-                            + "WHERE actu.id_produccio = ? AND actu.id_produccio = acto.id_produccio";
+        String sentenciaSql = "SELECT nomactor FROM actuen actu, actors acto WHERE actu.id_produccio = ? AND actu.id_actor = acto.id_actor";
         
         try(PreparedStatement ps = conn.prepareStatement(sentenciaSql)){
             ps.setInt(1, idProduccio);

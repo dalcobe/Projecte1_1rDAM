@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/DAM1/M3_recu/Projecte/UF5-6%20ProjecteStreaming/src/aplicacio/vista/PlataformaStreamingMVC.java</file>
+            <file>file:/G:/DAM1/M3_recu/Projecte/UF5-6%20ProjecteStreaming/src/aplicacio/model/Compte.java</file>
+            <file>file:/G:/DAM1/M3_recu/Projecte/UF5-6%20ProjecteStreaming/src/aplicacio/vista/PlataformaStreamingMVC.java</file>
+            <file>file:/G:/DAM1/M3_recu/Projecte/UF5-6%20ProjecteStreaming/src/aplicacio/vista/ComptesTarifaVista.java</file>
+            <file>file:/G:/DAM1/M3_recu/Projecte/UF5-6%20ProjecteStreaming/src/aplicacio/basedades/CompteDAO.java</file>
         </group>
     </open-files>
 </project-private>

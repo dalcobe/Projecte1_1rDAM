@@ -100,15 +100,15 @@ public class GestioProduccionsVista {
         txtId.setEffect(shadow7);
 
         Label lblNom = new Label("Nom");
-        TextField txtNom = new TextField();
+        txtNom = new TextField();
         txtNom.setEffect(shadow7);
 
         Label lblAny = new Label("Any");
-        TextField txtAny = new TextField();
+        txtAny = new TextField();
         txtAny.setEffect(shadow7);
 
         Label lblNacionalitat = new Label("Nacionalitat");
-        TextField txtNacionalitat = new TextField();
+        txtNacionalitat = new TextField();
         txtNacionalitat.setEffect(shadow7);
 
         Label lblCategoria = new Label("Categoria");
@@ -124,7 +124,7 @@ public class GestioProduccionsVista {
         txtActor.setEffect(shadow7);
 
         Label lblFavorit = new Label("Favorit");
-        TextField txtFavorit = new TextField();
+        txtFavorit = new TextField();
         txtFavorit.setEffect(shadow7);
 
         rb1 = new RadioButton("Pel·licula");
@@ -261,7 +261,7 @@ public class GestioProduccionsVista {
             //els camps de la pantalla son text, cal convertir els que son numeric
             int id = Integer.parseInt(txtId.getText());
             //Inicialitzem els camps de la pantalla per si hi ha valors d'anteriors operacions
-            inicialitzarCampsPantallaProduccio();
+            //inicialitzarCampsPantallaProduccio();
             //Creem un objecte ProduccioDAO per accedir a les dades de Produccio a la Base de dades
             ProduccioDAO prodDAO = new ProduccioDAO();
 
@@ -282,10 +282,8 @@ public class GestioProduccionsVista {
                 } else {
                     SerieDAO serieDAO = new SerieDAO();
                     Series serie = serieDAO.consultaSerieBD(id);
-                    System.out.println(serie);
-                    if (serie != null) {//en el cas de que no existeixi les dades en serie no les mostrara per pantalla
-                        dadesSerieAPantalla(serie);
-                    }
+                    dadesSerieAPantalla(serie);
+                    
                 }
             }
         }
@@ -315,6 +313,7 @@ public class GestioProduccionsVista {
 
     private void dadesProduccioAPantalla(Produccions p) {
         txtId.setText(String.valueOf(p.getId()));
+        
         txtNom.setText(p.getNom());
         txtNacionalitat.setText(p.getNacionalitat());
         txtAny.setText(String.valueOf(p.getAny()));
@@ -340,7 +339,7 @@ public class GestioProduccionsVista {
         rb2.setSelected(true);
         //mapeig dels camps de la classe Serie als camps de la pantalla
         txtDuradaTotal.setText(String.valueOf(s.getDuradaTotal()));
-        txtNumCapitols.setText(String.valueOf(s.getNumCapitols()));
+        //txtNumCapitols.setText(String.valueOf(s.getNumCapitols()));
         //en la consulta de Serie només visualitzem la primera
         //categoria, director i actor de la serie
         txtCategoria.setText(s.getCategoria(0));
